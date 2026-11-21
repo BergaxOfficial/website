@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- MODIFICA QUI IL TITOLO DELLA SCHEDA DEL BROWSER -->
+    <title>Prime eSportS Official Team Website</title>
+    
+    <!-- Caricamento Tailwind CSS per lo stile moderno e responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Caricamento Font Google: Rajdhani (per titoli gaming/sportivi) e Inter (per testi leggibili) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Caricamento FontAwesome per le icone dei social, trofei e ruoli -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Configurazione personalizzata di Tailwind per colori e font del team -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Rajdhani', 'sans-serif'],
+                    },
+                    colors: {
+                        teamDark: '#090b10',      // Sfondo principale scuro
+                        teamCard: '#111622',      // Sfondo delle card
+                        teamBorder: '#1e2638',    // Colore bordi sottili
+                        teamPrimary: '#00f0ff',   // Colore accento primario (Ciano elettrico)
+                        teamSecondary: '#7000ff', // Colore accento secondario (Viola neon)
+                        teamGold: '#fbbf24',      // Colore oro per i primi posti
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-teamDark text-gray-200 font-sans antialiased selection:bg-teamPrimary selection:text-teamDark overflow-x-hidden">
+
+    <!-- =====================================================================
+         1. BARRA DI NAVIGAZIONE (NAVBAR)
+         ===================================================================== -->
+    <nav class="fixed top-0 w-full z-50 bg-teamDark/90 backdrop-blur-md border-b border-teamBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo e Nome del Team -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-teamPrimary to-teamSecondary flex items-center justify-center text-teamDark font-display font-extrabold text-xl shadow-lg shadow-teamPrimary/20 group-hover:scale-105 transition-transform">
+                        <!-- PUOI SOSTITUIRE QUESTA ICONA CON UN'IMMAGINE DEL TUO LOGO -->
+                         <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <span class="font-display font-bold text-2xl tracking-wider text-white uppercase">
+                        PRIME <span class="text-teamPrimary">ESPORTS</span>
+                    </span>
+                </a>
+
+                <!-- Link Menu Desktop -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#chi-siamo" class="text-sm font-medium text-gray-300 hover:text-teamPrimary transition-colors">Chi Siamo</a>
+                    <a href="#membri" class="text-sm font-medium text-gray-300 hover:text-teamPrimary transition-colors">Roster & Membri</a>
+                    <a href="#vittorie" class="text-sm font-medium text-gray-300 hover:text-teamPrimary transition-colors">Vittorie & Risultati</a>
+                    <a href="#social" class="px-5 py-2.5 rounded-xl bg-teamPrimary/10 border border-teamPrimary/40 text-teamPrimary hover:bg-teamPrimary hover:text-teamDark font-semibold text-sm transition-all">
+                        Seguici sui Social
+                    </a>
+                </div>
+
+                <!-- Bottone Menu Mobile -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" aria-label="Apri menu" class="p-3 rounded-xl text-gray-300 hover:text-white hover:bg-teamCard focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Tendina Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-teamCard border-b border-teamBorder px-4 pt-2 pb-6 space-y-2">
+            <a href="#chi-siamo" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-teamDark hover:text-teamPrimary">Chi Siamo</a>
+            <a href="#membri" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-teamDark hover:text-teamPrimary">Roster & Membri</a>
+            <a href="#vittorie" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-gray-200 hover:bg-teamDark hover:text-teamPrimary">Vittorie & Risultati</a>
+            <a href="#social" class="mobile-link block px-4 py-3 rounded-xl text-base font-semibold text-teamPrimary bg-teamPrimary/10">I Nostri Social</a>
+        </div>
+    </nav>
+
+
+    <!-- =====================================================================
+         2. HERO SECTION (COPERTINA PRINCIPALE)
+         ===================================================================== -->
+    <header id="home" class="relative pt-32 pb-20 lg:pt-44 lg:pb-32 overflow-hidden">
+        <!-- Effetti di luce sullo sfondo -->
+        <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-teamPrimary/15 blur-[130px] rounded-full pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-[400px] h-[300px] bg-teamSecondary/15 blur-[130px] rounded-full pointer-events-none"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Badge stato team -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teamCard border border-teamBorder text-xs font-semibold uppercase tracking-widest text-teamPrimary mb-6">
+                <span class="w-2 h-2 rounded-full bg-teamPrimary animate-pulse"></span>
+                Stagione Competitiva 2026 Attiva
+            </div>
+
+            <!-- Titolo Principale -->
+            <h1 class="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl text-white uppercase tracking-tight mb-6 leading-none">
+                Nati per Dominare.<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-teamPrimary via-cyan-300 to-teamSecondary">
+                    Uniti nella Vittoria.
+                </span>
+            </h1>
+
+            <!-- Sottotitolo / Motto del Team -->
+            <p class="max-w-2xl mx-auto text-base sm:text-lg text-gray-400 mb-10 leading-relaxed">
+                Siamo <strong class="text-white">Apex Vanguard</strong>, un team competitivo dedicato all'eccellenza, alla strategia e allo spirito di squadra. Scopri il nostro roster, segui le nostre imprese settimanali ed entra nella nostra community.
+            </p>
+
+            <!-- Bottoni Call-to-Action -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#vittorie" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-teamPrimary to-cyan-400 text-teamDark font-display font-bold text-lg uppercase tracking-wider shadow-lg shadow-teamPrimary/25 hover:brightness-110 transition-all">
+                    <i class="fa-solid fa-trophy mr-2"></i> Guarda le Nostre Vittorie
+                </a>
+                <a href="#membri" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-teamCard border border-teamBorder hover:border-teamPrimary/50 text-white font-display font-bold text-lg uppercase tracking-wider transition-all">
+                    Conosci il Team
+                </a>
+            </div>
+
+            <!-- Statistiche Rapide in evidenza -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="p-5 rounded-2xl bg-teamCard/70 border border-teamBorder">
+                    <div id="stat-trofei" class="font-display font-extrabold text-3xl sm:text-4xl text-teamPrimary">14+</div>
+                    <div class="text-xs sm:text-sm text-gray-400 mt-1">Tornei Vinti</div>
+                </div>
+                <div class="p-5 rounded-2xl bg-teamCard/70 border border-teamBorder">
+                    <div class="font-display font-extrabold text-3xl sm:text-4xl text-white">5</div>
+                    <div class="text-xs sm:text-sm text-gray-400 mt-1">Player Titolari</div>
+                </div>
+                <div class="p-5 rounded-2xl bg-teamCard/70 border border-teamBorder">
+                    <div class="font-display font-extrabold text-3xl sm:text-4xl text-teamSecondary">82%</div>
+                    <div class="text-xs sm:text-sm text-gray-400 mt-1">Win Rate Mensile</div>
+                </div>
+                <div class="p-5 rounded-2xl bg-teamCard/70 border border-teamBorder">
+                    <div class="font-display font-extrabold text-3xl sm:text-4xl text-white">2024</div>
+                    <div class="text-xs sm:text-sm text-gray-400 mt-1">Anno di Fondazione</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- =====================================================================
+         3. SEZIONE "CHI SIAMO" (STORIA, MISSIONE E VALORI)
+         ===================================================================== -->
+    <section id="chi-siamo" class="py-20 border-t border-teamBorder bg-teamCard/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Colonna Testo Principale (MODIFICA QUI LA STORIA DEL TUO TEAM) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-block text-teamPrimary font-display font-bold uppercase tracking-widest text-sm">
+                        // La Nostra Identità
+                    </div>
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white uppercase">
+                        Chi Siamo & La Nostra Storia
+                    </h2>
+                    
+                    <p class="text-gray-300 leading-relaxed text-base sm:text-lg">
+                        Nati dalla passione condivisa di un gruppo di amici con l'obiettivo di competere ai massimi livelli, siamo cresciuti fino a diventare una realtà solida e riconosciuta nel panorama competitivo italiano ed europeo.
+                    </p>
+                    
+                    <p class="text-gray-400 leading-relaxed">
+                        Non siamo solo una squadra: siamo una famiglia unita dalla disciplina, dall'allenamento costante e dalla voglia di migliorarci ogni singolo giorno. Ogni partita è un'opportunità per dimostrare il valore del lavoro di squadra e il rispetto verso gli avversari.
+                    </p>
+
+                    <!-- Riquadro Modificabile Rapido per Annunci/Obiettivi del Team -->
+                    <div class="p-5 rounded-2xl bg-teamDark border-l-4 border-teamPrimary">
+                        <h3 class="font-display font-bold text-lg text-white uppercase mb-1">
+                            Obiettivo Attuale del Team
+                        </h3>
+                        <p class="text-sm text-gray-400">
+                            Qualificazione alle finali nazionali del prossimo mese e consolidamento della top 3 nelle leghe settimanali.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Colonna Pilastri / Valori -->
+                <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+                    <div class="p-6 rounded-2xl bg-teamCard border border-teamBorder hover:border-teamPrimary/40 transition-colors">
+                        <div class="w-11 h-11 rounded-xl bg-teamPrimary/10 text-teamPrimary flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-crosshairs"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white uppercase mb-2">Strategia & Focus</h3>
+                        <p class="text-sm text-gray-400">Analizziamo ogni dettaglio e prepariamo ogni sfida con metodo, lucidità e coordinazione.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-teamCard border border-teamBorder hover:border-teamSecondary/40 transition-colors">
+                        <div class="w-11 h-11 rounded-xl bg-teamSecondary/15 text-purple-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white uppercase mb-2">Spirito di Squadra</h3>
+                        <p class="text-sm text-gray-400">Nessun singolo vince da solo. La fiducia reciproca e la comunicazione sono la nostra vera forza.</p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-teamCard border border-teamBorder hover:border-teamGold/40 transition-colors sm:col-span-2 lg:col-span-1">
+                        <div class="w-11 h-11 rounded-xl bg-teamGold/10 text-teamGold flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white uppercase mb-2">Crescita Costante</h3>
+                        <p class="text-sm text-gray-400">Aggiorniamo i nostri traguardi settimana dopo settimana, puntando sempre al gradino più alto del podio.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =====================================================================
+         4. SEZIONE "MEMBRI DEL TEAM" (ROSTER)
+         ===================================================================== -->
+    <section id="membri" class="py-20 border-t border-teamBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Intestazione Sezione -->
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <div class="text-teamPrimary font-display font-bold uppercase tracking-widest text-sm mb-2">
+                    // Il Nostro Roster
+                </div>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white uppercase mb-4">
+                    I Membri del Team
+                </h2>
+                <p class="text-gray-400">
+                    Conosci i protagonisti che scendono in campo ogni settimana per difendere i nostri colori.
+                </p>
+            </div>
+
+            <!-- Griglia Schede Membri (Generata in automatico dallo script qui sotto per pulizia e facilità di modifica) -->
+            <div id="roster-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Le card dei membri verranno inserite qui dal codice JavaScript -->
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =====================================================================
+         5. SEZIONE "LE NOSTRE VITTORIE" (ALBO D'ORO AGGIORNABILE)
+         ===================================================================== -->
+    <section id="vittorie" class="py-20 border-t border-teamBorder bg-teamCard/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Intestazione + Pulsante per Aggiungere Vittorie -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                <div>
+                    <div class="text-teamGold font-display font-bold uppercase tracking-widest text-sm mb-2">
+                        // Albo d'Oro & Risultati Settimanali
+                    </div>
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white uppercase">
+                        Le Nostre Vittorie
+                    </h2>
+                    <p class="text-gray-400 mt-2 max-w-2xl">
+                        Tutti i tornei conquistati, i podi e i traguardi raggiunti dal team, aggiornati ogni settimana.
+                    </p>
+                </div>
+
+                <!-- Pulsanti Gestione Vittorie (Per aggiornare subito o esportare il codice) -->
+                <div class="flex flex-wrap items-center gap-3">
+                    <button id="open-victory-modal-btn" class="px-5 py-3 rounded-xl bg-teamGold text-teamDark font-display font-bold uppercase tracking-wider text-sm hover:brightness-110 transition-all shadow-lg shadow-teamGold/20 flex items-center gap-2">
+                        <i class="fa-solid fa-plus"></i> Aggiungi Vittoria
+                    </button>
+                    <button id="export-code-btn" title="Genera il codice aggiornato da incollare nel file HTML" class="px-4 py-3 rounded-xl bg-teamCard border border-teamBorder hover:border-teamPrimary text-gray-300 hover:text-white text-sm font-medium transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-code"></i> Salva nel Codice
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filtri rapidi per posizione -->
+            <div class="flex flex-wrap gap-2 mb-8">
+                <button data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-teamPrimary text-teamDark transition-all">
+                    Tutti i Risultati
+                </button>
+                <button data-filter="1" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-teamCard text-gray-300 border border-teamBorder hover:border-teamGold transition-all">
+                    <i class="fa-solid fa-trophy text-teamGold mr-1"></i> Solo 1° Posto
+                </button>
+                <button data-filter="podium" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-teamCard text-gray-300 border border-teamBorder hover:border-teamPrimary transition-all">
+                    <i class="fa-solid fa-medal text-cyan-400 mr-1"></i> Podi (2° / 3°)
+                </button>
+            </div>
+
+            <!-- Lista / Griglia delle Vittorie -->
+            <div id="victories-list" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <!-- Le card delle vittorie verranno generate automaticamente dal codice JavaScript -->
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =====================================================================
+         6. SEZIONE "I NOSTRI SOCIAL" & FOOTER
+         ===================================================================== -->
+    <section id="social" class="py-20 border-t border-teamBorder relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="text-teamPrimary font-display font-bold uppercase tracking-widest text-sm mb-2">
+                // Resta Connesso
+            </div>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white uppercase mb-4">
+                Seguici sui Nostri Social
+            </h2>
+            <p class="text-gray-400 max-w-xl mx-auto mb-12">
+                Non perderti le dirette, gli highlights delle nostre partite, le clip migliori e gli annunci ufficiali del team.
+            </p>
+
+            <!-- Griglia Pulsanti Social Grandi (INSERISCI QUI I LINK AI SOCIAL DEL TUO TEAM) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                
+                <!-- INSTAGRAM -->
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-2xl bg-teamCard border border-teamBorder hover:border-pink-500/60 hover:-translate-y-1 transition-all flex flex-col items-center justify-center gap-3">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <span class="font-display font-bold text-lg text-white uppercase">Instagram</span>
+                    <span class="text-xs text-gray-400 group-hover:text-pink-400">@apexvanguard</span>
+                </a>
+
+                <!-- TIKTOK -->
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-2xl bg-teamCard border border-teamBorder hover:border-cyan-400/60 hover:-translate-y-1 transition-all flex flex-col items-center justify-center gap-3">
+                    <div class="w-14 h-14 rounded-2xl bg-black border border-gray-700 flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <span class="font-display font-bold text-lg text-white uppercase">TikTok</span>
+                    <span class="text-xs text-gray-400 group-hover:text-cyan-400">@apexvanguard</span>
+                </a>
+
+                <!-- TWITCH -->
+                <a href="https://twitch.tv" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-2xl bg-teamCard border border-teamBorder hover:border-purple-500/60 hover:-translate-y-1 transition-all flex flex-col items-center justify-center gap-3">
+                    <div class="w-14 h-14 rounded-2xl bg-purple-600 flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-twitch"></i>
+                    </div>
+                    <span class="font-display font-bold text-lg text-white uppercase">Twitch</span>
+                    <span class="text-xs text-gray-400 group-hover:text-purple-400">Live Stream</span>
+                </a>
+
+                <!-- YOUTUBE -->
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-2xl bg-teamCard border border-teamBorder hover:border-red-500/60 hover:-translate-y-1 transition-all flex flex-col items-center justify-center gap-3">
+                    <div class="w-14 h-14 rounded-2xl bg-red-600 flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <span class="font-display font-bold text-lg text-white uppercase">YouTube</span>
+                    <span class="text-xs text-gray-400 group-hover:text-red-400">Highlights & Vlog</span>
+                </a>
+
+                <!-- DISCORD -->
+                <a href="https://discord.com" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-2xl bg-teamCard border border-teamBorder hover:border-indigo-500/60 hover:-translate-y-1 transition-all flex flex-col items-center justify-center gap-3">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-discord"></i>
+                    </div>
+                    <span class="font-display font-bold text-lg text-white uppercase">Discord</span>
+                    <span class="text-xs text-gray-400 group-hover:text-indigo-400">Community Server</span>
+                </a>
+
+                <!-- X / TWITTER -->
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-2xl bg-teamCard border border-teamBorder hover:border-gray-400/60 hover:-translate-y-1 transition-all flex flex-col items-center justify-center gap-3">
+                    <div class="w-14 h-14 rounded-2xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </div>
+                    <span class="font-display font-bold text-lg text-white uppercase">X / Twitter</span>
+                    <span class="text-xs text-gray-400 group-hover:text-white">News & Aggiornamenti</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Finale -->
+    <footer class="border-t border-teamBorder bg-teamCard/50 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-teamPrimary"></i>
+                <span class="font-display font-bold text-white uppercase tracking-wider">APEX VANGUARD</span>
+                <span>&copy; 2026 Tutti i diritti riservati.</span>
+            </div>
+            <div>
+                Contatti & Collaborazioni: <a href="mailto:info@tuoteam.it" class="text-teamPrimary hover:underline">info@tuoteam.it</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- =====================================================================
+         FINESTRA MODALE: AGGIUNGI NUOVA VITTORIA SETTIMANALE
+         ===================================================================== -->
+    <div id="victory-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="bg-teamCard border border-teamBorder rounded-2xl max-w-md w-full p-6 shadow-2xl">
+            <div class="flex items-center justify-between mb-5">
+                <h3 class="font-display font-bold text-2xl text-white uppercase flex items-center gap-2">
+                    <i class="fa-solid fa-trophy text-teamGold"></i> Nuova Vittoria
+                </h3>
+                <button id="close-victory-modal" class="text-gray-400 hover:text-white p-2">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <form id="add-victory-form" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Nome Torneo / Evento *</label>
+                    <input type="text" id="v-tournament" required placeholder="es. Weekly Community Cup #15" class="w-full px-4 py-3 rounded-xl bg-teamDark border border-teamBorder text-white focus:outline-none focus:border-teamPrimary">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Risultato *</label>
+                        <select id="v-rank" class="w-full px-4 py-3 rounded-xl bg-teamDark border border-teamBorder text-white focus:outline-none focus:border-teamPrimary">
+                            <option value="1">1° Posto (Campioni)</option>
+                            <option value="2">2° Posto (Finalisti)</option>
+                            <option value="3">3° Posto (Podio)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Data *</label>
+                        <input type="text" id="v-date" required placeholder="es. 21 Nov 2026" class="w-full px-4 py-3 rounded-xl bg-teamDark border border-teamBorder text-white focus:outline-none focus:border-teamPrimary">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-1">Dettagli / Punteggio Finale</label>
+                    <input type="text" id="v-details" placeholder="es. Finale vinta 3-1 • MVP: Kairo" class="w-full px-4 py-3 rounded-xl bg-teamDark border border-teamBorder text-white focus:outline-none focus:border-teamPrimary">
+                </div>
+
+                <div class="pt-2 flex gap-3">
+                    <button type="button" id="cancel-victory-btn" class="w-1/2 py-3 rounded-xl bg-teamDark border border-teamBorder text-gray-300 font-semibold hover:text-white">
+                        Annulla
+                    </button>
+                    <button type="submit" class="w-1/2 py-3 rounded-xl bg-teamGold text-teamDark font-display font-bold uppercase tracking-wider hover:brightness-110">
+                        Pubblica Risultato
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         FINESTRA MODALE: ESPORTA CODICE AGGIORNATO (PER RENDERLO PERMANENTE)
+         ===================================================================== -->
+    <div id="export-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+        <div class="bg-teamCard border border-teamBorder rounded-2xl max-w-lg w-full p-6 shadow-2xl">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="font-display font-bold text-xl text-white uppercase">
+                    Codice Aggiornato delle Vittorie
+                </h3>
+                <button id="close-export-modal" class="text-gray-400 hover:text-white p-2">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <p class="text-xs text-gray-400 mb-3">
+                Le vittorie aggiunte dal sito vengono salvate nel tuo browser. Per renderle visibili a tutti i visitatori del sito, copia questo blocco e sostituisci <code class="text-teamPrimary">const vittorieIniziali = [...]</code> nel tuo file HTML:
+            </p>
+            <textarea id="exported-code-area" rows="8" readonly class="w-full p-3 rounded-xl bg-teamDark border border-teamBorder text-xs font-mono text-cyan-300 focus:outline-none mb-4"></textarea>
+            <div class="flex justify-between items-center gap-3">
+                <span id="copy-feedback" class="text-xs text-emerald-400 font-medium hidden">Copiato negli appunti!</span>
+                <button id="copy-code-btn" class="ml-auto px-5 py-2.5 rounded-xl bg-teamPrimary text-teamDark font-display font-bold uppercase text-sm hover:brightness-110">
+                    <i class="fa-regular fa-copy mr-1"></i> Copia Codice
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =====================================================================
+         7. LOGICA JAVASCRIPT & DATI MODIFICABILI DEL TEAM
+         ===================================================================== -->
+    <script>
+        /* ===================================================================
+           AREA DI PERSONALIZZAZIONE RAPIDA: MODIFICA QUI MEMBRI E VITTORIE!
+           =================================================================== */
+
+        // 1. LISTA DEI MEMBRI DEL TEAM (Aggiungi, rimuovi o modifica i membri qui)
+        const membriTeam = [
+            {
+                nickname: "KAIRO",
+                nomeReale: "Marco Rossi",
+                ruolo: "Capitano / IGL",
+                bio: "Mente strategica del team. Coordina le rotazioni e mantiene alta la concentrazione nei momenti decisivi.",
+                avatar: "https://placehold.co/300x300/111622/00f0ff?text=KAIRO",
+                social: {
+                    instagram: "https://instagram.com",
+                    twitch: "https://twitch.tv",
+                    twitter: "https://x.com"
+                }
+            },
+            {
+                nickname: "VEXEN",
+                nomeReale: "Luca Bianchi",
+                ruolo: "Entry Fragger / Assaltatore",
+                bio: "Sempre in prima linea per aprire varchi nelle difese avversarie con riflessi fulminei.",
+                avatar: "https://placehold.co/300x300/111622/7000ff?text=VEXEN",
+                social: {
+                    instagram: "https://instagram.com",
+                    tiktok: "https://tiktok.com"
+                }
+            },
+            {
+                nickname: "NYX",
+                nomeReale: "Giulia Verdi",
+                ruolo: "Support / Tactician",
+                bio: "Specialista nel controllo mappa e nel supporto costante ai compagni durante i teamfight.",
+                avatar: "https://placehold.co/300x300/111622/00f0ff?text=NYX",
+                social: {
+                    instagram: "https://instagram.com",
+                    twitch: "https://twitch.tv",
+                    youtube: "https://youtube.com"
+                }
+            },
+            {
+                nickname: "DRAKE",
+                nomeReale: "Alessandro Neri",
+                ruolo: "Sniper / Flex",
+                bio: "Precisione chirurgica dalla lunga distanza e grande adattabilità su ogni ruolo richiesto dal match.",
+                avatar: "https://placehold.co/300x300/111622/fbbf24?text=DRAKE",
+                social: {
+                    twitter: "https://x.com",
+                    youtube: "https://youtube.com"
+                }
+            },
+            {
+                nickname: "ZEPHYR",
+                nomeReale: "Matteo Conti",
+                ruolo: "Lurker / Clutch Master",
+                bio: "Imprevedibile nei movimenti e letale nelle situazioni di inferiorità numerica.",
+                avatar: "https://placehold.co/300x300/111622/7000ff?text=ZEPHYR",
+                social: {
+                    instagram: "https://instagram.com",
+                    tiktok: "https://tiktok.com"
+                }
+            },
+            {
+                nickname: "COACH ORION",
+                nomeReale: "Davide Galli",
+                ruolo: "Head Coach & Analyst",
+                bio: "Guida gli allenamenti settimanali, studia gli avversari e cura la crescita mentale del roster.",
+                avatar: "https://placehold.co/300x300/111622/00f0ff?text=COACH",
+                social: {
+                    twitter: "https://x.com",
+                    discord: "https://discord.com"
+                }
+            }
+        ];
+
+        // 2. LISTA DELLE VITTORIE (Aggiorna qui ogni settimana oppure usa il tasto "Aggiungi Vittoria" sulla pagina!)
+        const vittorieIniziali = [
+            {
+                id: 1,
+                torneo: "Italian Elite Series - Split Autunnale",
+                posizione: "1", // "1" = 1° Posto, "2" = 2° Posto, "3" = 3° Posto
+                data: "16 Nov 2026",
+                dettagli: "Finale vinta 3-1 contro Team Nova • MVP: KAIRO"
+            },
+            {
+                id: 2,
+                torneo: "Sunday Night Showdown #42",
+                posizione: "1",
+                data: "09 Nov 2026",
+                dettagli: "Torneo imbattuti (6-0) • Premio 500€"
+            },
+            {
+                id: 3,
+                torneo: "European Open Qualifier Cup",
+                posizione: "2",
+                data: "02 Nov 2026",
+                dettagli: "Qualificati al Main Event Europeo"
+            },
+            {
+                id: 4,
+                torneo: "Vanguard Community Invitational",
+                posizione: "1",
+                data: "25 Ott 2026",
+                dettagli: "Dominio totale in finale • MVP: VEXEN"
+            }
+        ];
+
+        /* ===================================================================
+           FUNZIONI DI RENDERING E INTERATTIVITÀ (NON SERVE MODIFICARE QUI)
+           =================================================================== */
+
+        // Carica le vittorie salvate in localStorage oppure usa quelle iniziali
+        let vittorie = JSON.parse(localStorage.getItem('apex_vanguard_victories')) || [...vittorieIniziali];
+        let filtroCorrente = 'all';
+
+        // Genera le card dei membri del team
+        function renderMembri() {
+            const container = document.getElementById('roster-grid');
+            if (!container) return;
+
+            container.innerHTML = membriTeam.map(membro => {
+                // Genera le icone social solo per i link presenti
+                let socialHtml = '';
+                if (membro.social.instagram) socialHtml += `<a href="${membro.social.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram di ${membro.nickname}" class="w-9 h-9 rounded-lg bg-teamDark border border-teamBorder flex items-center justify-center text-gray-400 hover:text-pink-400 hover:border-pink-400/50 transition-colors"><i class="fa-brands fa-instagram"></i></a>`;
+                if (membro.social.twitch) socialHtml += `<a href="${membro.social.twitch}" target="_blank" rel="noopener noreferrer" aria-label="Twitch di ${membro.nickname}" class="w-9 h-9 rounded-lg bg-teamDark border border-teamBorder flex items-center justify-center text-gray-400 hover:text-purple-400 hover:border-purple-400/50 transition-colors"><i class="fa-brands fa-twitch"></i></a>`;
+                if (membro.social.tiktok) socialHtml += `<a href="${membro.social.tiktok}" target="_blank" rel="noopener noreferrer" aria-label="TikTok di ${membro.nickname}" class="w-9 h-9 rounded-lg bg-teamDark border border-teamBorder flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-colors"><i class="fa-brands fa-tiktok"></i></a>`;
+                if (membro.social.youtube) socialHtml += `<a href="${membro.social.youtube}" target="_blank" rel="noopener noreferrer" aria-label="YouTube di ${membro.nickname}" class="w-9 h-9 rounded-lg bg-teamDark border border-teamBorder flex items-center justify-center text-gray-400 hover:text-red-400 hover:border-red-400/50 transition-colors"><i class="fa-brands fa-youtube"></i></a>`;
+                if (membro.social.twitter) socialHtml += `<a href="${membro.social.twitter}" target="_blank" rel="noopener noreferrer" aria-label="X di ${membro.nickname}" class="w-9 h-9 rounded-lg bg-teamDark border border-teamBorder flex items-center justify-center text-gray-400 hover:text-white hover:border-gray-400/50 transition-colors"><i class="fa-brands fa-x-twitter"></i></a>`;
+                if (membro.social.discord) socialHtml += `<a href="${membro.social.discord}" target="_blank" rel="noopener noreferrer" aria-label="Discord di ${membro.nickname}" class="w-9 h-9 rounded-lg bg-teamDark border border-teamBorder flex items-center justify-center text-gray-400 hover:text-indigo-400 hover:border-indigo-400/50 transition-colors"><i class="fa-brands fa-discord"></i></a>`;
+
+                return `
+                    <article class="group rounded-2xl bg-teamCard border border-teamBorder hover:border-teamPrimary/50 p-6 transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-4 mb-5">
+                                <img src="${membro.avatar}" alt="${membro.nickname}" onerror="this.src='https://placehold.co/300x300/111622/00f0ff?text=PLAYER'" class="w-20 h-20 rounded-2xl object-cover border-2 border-teamBorder group-hover:border-teamPrimary transition-colors">
+                                <div>
+                                    <span class="inline-block px-2.5 py-0.5 rounded-md bg-teamPrimary/10 text-teamPrimary text-xs font-bold uppercase tracking-wider mb-1">
+                                        ${membro.ruolo}
+                                    </span>
+                                    <h3 class="font-display font-extrabold text-2xl text-white uppercase tracking-wide">
+                                        ${membro.nickname}
+                                    </h3>
+                                    <p class="text-xs text-gray-400">${membro.nomeReale}</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                                ${membro.bio}
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-teamBorder/70 flex items-center justify-between">
+                            <span class="text-xs text-gray-500 uppercase font-semibold">Profili</span>
+                            <div class="flex items-center gap-2">
+                                ${socialHtml}
+                            </div>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        // Genera le card delle vittorie
+        function renderVittorie() {
+            const container = document.getElementById('victories-list');
+            if (!container) return;
+
+            // Filtra in base al bottone selezionato
+            const filtrate = vittorie.filter(v => {
+                if (filtroCorrente === '1') return v.posizione === '1';
+                if (filtroCorrente === 'podium') return v.posizione === '2' || v.posizione === '3';
+                return true;
+            });
+
+            if (filtrate.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-10 text-gray-400 bg-teamCard rounded-2xl border border-teamBorder">Nessun risultato trovato per questo filtro.</div>`;
+                return;
+            }
+
+            container.innerHTML = filtrate.map(v => {
+                // Configura stile badge in base alla posizione (1°, 2°, 3°)
+                let badgeClass = 'bg-teamGold/15 text-teamGold border-teamGold/40';
+                let iconClass = 'fa-trophy text-teamGold';
+                let labelPosizione = '1° POSTO';
+
+                if (v.posizione === '2') {
+                    badgeClass = 'bg-slate-300/15 text-slate-200 border-slate-300/40';
+                    iconClass = 'fa-medal text-slate-300';
+                    labelPosizione = '2° POSTO';
+                } else if (v.posizione === '3') {
+                    badgeClass = 'bg-amber-600/15 text-amber-400 border-amber-600/40';
+                    iconClass = 'fa-medal text-amber-500';
+                    labelPosizione = '3° POSTO';
+                }
+
+                return `
+                    <div class="rounded-2xl bg-teamCard border border-teamBorder hover:border-teamGold/40 p-6 flex items-start justify-between gap-4 transition-all">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-teamDark border border-teamBorder flex items-center justify-center text-xl shrink-0 mt-1">
+                                <i class="fa-solid ${iconClass}"></i>
+                            </div>
+                            <div>
+                                <div class="flex flex-wrap items-center gap-2 mb-1.5">
+                                    <span class="px-2.5 py-0.5 rounded-md border text-xs font-display font-bold tracking-wider ${badgeClass}">
+                                        ${labelPosizione}
+                                    </span>
+                                    <span class="text-xs text-gray-400">
+                                        <i class="fa-regular fa-calendar mr-1"></i>${v.data}
+                                    </span>
+                                </div>
+                                <h3 class="font-display font-bold text-xl text-white uppercase">
+                                    ${v.torneo}
+                                </h3>
+                                ${v.dettagli ? `<p class="text-sm text-gray-400 mt-1">${v.dettagli}</p>` : ''}
+                            </div>
+                        </div>
+                        <button onclick="eliminaVittoria(${v.id})" title="Rimuovi risultato" class="text-gray-600 hover:text-red-400 p-2 transition-colors">
+                            <i class="fa-solid fa-trash-can text-sm"></i>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            // Aggiorna contatore trofei nella Hero section
+            const statTrofei = document.getElementById('stat-trofei');
+            if (statTrofei) {
+                const primiPosti = vittorie.filter(v => v.posizione === '1').length;
+                statTrofei.textContent = (10 + primiPosti) + '+';
+            }
+        }
+
+        // Elimina una vittoria dalla lista
+        window.eliminaVittoria = function(id) {
+            vittorie = vittorie.filter(v => v.id !== id);
+            localStorage.setItem('apex_vanguard_victories', JSON.stringify(vittorie));
+            renderVittorie();
+        };
+
+        // Inizializzazione al caricamento della pagina
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMembri();
+            renderVittorie();
+
+            // Gestione Menu Mobile
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            // Gestione Filtri Vittorie
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-btn').forEach(b => {
+                        b.classList.remove('bg-teamPrimary', 'text-teamDark');
+                        b.classList.add('bg-teamCard', 'text-gray-300');
+                    });
+                    btn.classList.remove('bg-teamCard', 'text-gray-300');
+                    btn.classList.add('bg-teamPrimary', 'text-teamDark');
+                    filtroCorrente = btn.dataset.filter;
+                    renderVittorie();
+                });
+            });
+
+            // Gestione Modale "Aggiungi Vittoria"
+            const modal = document.getElementById('victory-modal');
+            const openModalBtn = document.getElementById('open-victory-modal-btn');
+            const closeModalBtn = document.getElementById('close-victory-modal');
+            const cancelBtn = document.getElementById('cancel-victory-btn');
+            const form = document.getElementById('add-victory-form');
+
+            const toggleModal = (show) => {
+                if (show) {
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                } else {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }
+            };
+
+            openModalBtn.addEventListener('click', () => toggleModal(true));
+            closeModalBtn.addEventListener('click', () => toggleModal(false));
+            cancelBtn.addEventListener('click', () => toggleModal(false));
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const nuovaVittoria = {
+                    id: Date.now(),
+                    torneo: document.getElementById('v-tournament').value.trim(),
+                    posizione: document.getElementById('v-rank').value,
+                    data: document.getElementById('v-date').value.trim(),
+                    dettagli: document.getElementById('v-details').value.trim()
+                };
+
+                // Aggiunge in cima alla lista
+                vittorie.unshift(nuovaVittoria);
+                localStorage.setItem('apex_vanguard_victories', JSON.stringify(vittorie));
+                renderVittorie();
+                form.reset();
+                toggleModal(false);
+            });
+
+            // Gestione Modale "Salva nel Codice"
+            const exportModal = document.getElementById('export-modal');
+            const exportBtn = document.getElementById('export-code-btn');
+            const closeExportBtn = document.getElementById('close-export-modal');
+            const codeArea = document.getElementById('exported-code-area');
+            const copyBtn = document.getElementById('copy-code-btn');
+            const copyFeedback = document.getElementById('copy-feedback');
+
+            exportBtn.addEventListener('click', () => {
+                codeArea.value = `const vittorieIniziali = ${JSON.stringify(vittorie, null, 4)};`;
+                exportModal.classList.remove('hidden');
+                exportModal.classList.add('flex');
+                copyFeedback.classList.add('hidden');
+            });
+
+            closeExportBtn.addEventListener('click', () => {
+                exportModal.classList.add('hidden');
+                exportModal.classList.remove('flex');
+            });
+
+            copyBtn.addEventListener('click', () => {
+                codeArea.select();
+                document.execCommand('copy');
+                copyFeedback.classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
